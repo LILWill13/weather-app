@@ -9,16 +9,107 @@
     <link rel="stylesheet" href="./assets/main.css">
 </head>
 <body>
-<input type="text" id="cityInput" placeholder="Enter City Here">
-<button id="cityBtn" for="cityInput"></button>
-
-
-
-
-
-
-
-
+    <div id="whole">
+        <div id="aside" class="d-flex flex-column align-items-stretch flex-shrink-0 bg-white" style="width: 25%;">
+            <svg class="bi me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+            <span class="fs-5 fw-semibold">Weather In?</span>
+            <div id="input-section">
+                <input type="text" id="cityInput" placeholder="Enter City">
+                <button id="cityBtn">Search</button>
+            </div>
+            <div id="cityNames" class="list-group list-group-flush border-bottom scrollarea">
+            </div>
+            <button>Clear Search History</button>
+        </div>
+        <div class="container weather-cards">
+                <main class="mb-4 bg-light">
+                    <div class="container-fluid py-5">
+                        <h1 class="display-5 fw-bold"></h1>
+                        <h2 class="display-5 fw-bold"></h2>
+                        <ul>
+                            <li class='jmbLi' id="jumboTemp"></li>
+                            <li class='jmbLi' id="jumboWind"></li>
+                            <li class='jmbLi' id="jumboHum"></li>
+                            <li class='jmbLi' id="jumboFeel"></li>
+                        </ul>
+                    </div>
+                </main>
+            <div id="fiveDay">
+                <h3>5 day forcast</h3>
+                <div id="cards">
+                    <div class="card" style="width: 18rem;">
+                        <img src="" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title" id="card1">TMR</h5>
+                            <ul class="card-text">
+                                <li id="min1"></li>
+                                <li id="max1"></li>
+                                <li id="uv1"></li>
+                                <li id="hum1"></li>
+                                <li id="wind1"></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                        <img src="" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title" id="card2">DAY AFTER</h5>
+                            <ul class="card-text">
+                                <li id="min2"></li>
+                                <li id="max2"></li>
+                                <li id="uv2"></li>
+                                <li id="hum2"></li>
+                                <li id="wind2"></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                        <img src="" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title" id="card3">DAY AFTER</h5>
+                            <ul class="card-text">
+                                <li id="min3"></li>
+                                <li id="max3"></li>
+                                <li id="uv3"></li>
+                                <li id="hum3"></li>
+                                <li id="wind3"></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                        <img src="" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title" id="card4">DAY AFTER</h5>
+                            <ul class="card-text">
+                                <li id="min4"></li>
+                                <li id="max4"></li>
+                                <li id="uv4"></li>
+                                <li id="hum4"></li>
+                                <li id="wind4"></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 18rem;">
+                        <img src="" class="card-img-top" alt="">
+                        <div class="card-body">
+                            <h5 class="card-title" id="card5">DAY AFTER</h5>
+                            <ul class="card-text">
+                                <li id="min5"></li>
+                                <li id="max5"></li>
+                                <li id="uv5"></li>
+                                <li id="hum5"></li>
+                                <li id="wind5"></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>    
+        </div>
+    </div>
+    <script
+    type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"
+  ></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <script src="./assets/main.js"></script>

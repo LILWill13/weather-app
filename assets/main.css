@@ -3,6 +3,7 @@
     position: relative;
     position: absolute;
     max-width: 100vw;
+
 }
 main {
     line-height: 2;
@@ -20,7 +21,7 @@ main {
 }
 
 input{
-    width:100%
+    width:100%;
 }
 
 span {

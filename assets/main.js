@@ -1,5 +1,7 @@
 //sets and adds event listener to search btn
 var cityBtn = $('#cityBtn');
+var newSearch = JSON.parse(localStorage.getItem('newSearch'))
+const citiesli = JSON.parse(localStorage.getItem('cities')) || [];
 // calls function displayWeather when seach button is clicked
 cityBtn.click(displayWeather);
 
@@ -50,33 +52,46 @@ function displayWeather(e){
             url: url2,
             method: 'GET',
             }).then(function (res) {
-            
+                
             var temp = res.main.temp
             var feelsLike = res.main.feels_like
             var wind = res.wind.speed
             var hum = res.main.humidity
-        
-
+            var icon = res.weather[0].icon
+                
             jmbTem.text('Tempture: ' + temp + '°F')
             jmbWnd.text('Wind: ' + wind)
             jmbHum.text('Humidity: ' + hum)
             jmbFeel.text('Feels Like: ' + feelsLike + '°F') 
             
+            var url3 = 'http://openweathermap.org/img/wn/'+icon +'@2x.png'
+            console.log(url3)
+            $.ajax({
+                url: url3,
+                method: 'GET',
+                }).then(function (iconImg) {
+                    $('#icon').text(iconImg)
+                console.log(iconImg)               
+            }); 
 
         }); 
-        batMan()
+        batMan(e)
     };
 }); 
-fiveDay();
+fiveDay(e);
 };
 
-function fiveDay() {
+function fiveDay(e) {
+    e.preventDefault();
+
     var cityInput =  $('#cityInput').val();
     var apiKey = '073b3ac39929c47e16ee4c7c719fcb54';
 
     var url ='https://api.openweathermap.org/geo/1.0/direct?q='+ cityInput+'&appid='+ apiKey;
 
     
+    localStorage.setItem('newSearch',JSON.stringify(cityInput));
+   
     $.ajax({
         url: url,
         method: 'GET',
@@ -131,8 +146,12 @@ function fiveDay() {
     }); 
 };
 
-function batMan() {
-    var cityInput = $('#cityInput').val()
+function batMan(e) {
+    e.preventDefault();
+    $('#cityNames').attr('style','display:inital')
+
+    var cityInput =  JSON.parse(localStorage.getItem('newSearch'))
+
     var createA = $('<a>')
     createA.addClass('list-group-item list-group-item-action py-3 lh-tight')
     var createDiv = $('<div>')
@@ -144,3 +163,6 @@ function batMan() {
     var cityList = $('#cityNames')
     cityList.append(createA)
 }
+    
+var clearBtn =  $('#clear');
+
